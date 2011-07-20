@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.6.0">
+	<name>Donation Gauge</name>
+	<author>Jonah Dahlquist</author>
+	<creationDate>2011-7-19</creationDate>
+	<copyright>Copyright 2011 Jonah Dahlquist, all rights reserved</copyright>
+	<license>BSD</license>
+	<authorEmail>jonah@nucleussystems.com</authorEmail>
+	<authorUrl>http://nucleussystems.com/</authorUrl>
+	<version>1.6.1</version>
+	<description>Provides a way to provide donations to independent items, showing the progress of each.</description>
+	<files>
+		<filename module="mod_donation_gauge">mod_donation_gauge.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<params />
+</install>

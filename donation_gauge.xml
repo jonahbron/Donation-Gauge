@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6.0" method="upgrade">
+	<name>donation_gauge</name>
+	<creationDate>2011-7-19</creationDate><author>Jonah Dahlquist</author><authorEmail>jonah@nucleussystems.com</authorEmail><authorUrl>http://nucleussystems.com/</authorUrl><copyright>Copyright 2011 Jonah Dahlquist, all rights reserved</copyright><license>BSD</license>
+	
+	
+	
+	
+	
+	
+	<version>1.6.1</version>
+	<description>Provides a way to provide donations to independent items, showing the progress of each.</description><update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath></schemas></update>
+	
+	<files folder="site">
+		<filename>donation_gauge.php</filename>
+		<filename>index.html</filename>
+		</files>
+	<administration>
+		<menu>Donation Gauge</menu>
+		<files folder="admin">
+			<filename>index.html</filename>
+			<filename>donation_gauge.php</filename><filename>sql/updates/mysql/0.0.1.sql</filename></files></administration></extension>

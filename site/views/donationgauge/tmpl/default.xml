@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<layout title="COM_DONATIONGAUGE_DONATIONGAUGE_VIEW_DEFAULT_TITLE">
+		<message>COM_DONATIONGAUGE_DONATIONGAUGE_VIEW_DEFAULT_DESC</message></layout>
+	<fields name="request">
+		<fieldset name='request'>
+			<field type="list" name="id" label="COM_DONATIONGAUGE_DONATIONGAUGE_FIELD_GREETING_LABEL" description="COM_DONATIONGAUGE_DONATIONGAUGE_FIELD_GREETING_DESC" default="1">
+				<option value="1">Donation Gauge</option>
+				<option value="2">Gauge List</option></field></fieldset></fields></metadata>

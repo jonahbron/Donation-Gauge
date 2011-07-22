@@ -1,4 +1,10 @@
 <?php
 defined('_JEXEC') or die; // no direct access allowed
- 
-echo 'Hello, world!  Admin!';
+
+jimport('joomla.application.component.controller');
+
+$controller = JController::getInstance('DonationGauge');
+
+$controller->execute(JRequest::getCmd('task'));
+
+$controller->redirect();

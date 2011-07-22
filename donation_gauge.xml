@@ -8,7 +8,7 @@
 	
 	
 	
-	<version>1.6.1</version>
+	<version>1.6.2</version>
 	<description>Provides a way to provide donations to independent items, showing the progress of each.</description><update>
 		<schemas>
 			<schemapath type="mysql">sql/updates/mysql</schemapath></schemas></update>
@@ -16,9 +16,14 @@
 	<files folder="site">
 		<filename>donation_gauge.php</filename>
 		<filename>index.html</filename>
-		</files>
+		<filename>controller.php</filename><folder>views</folder>
+		<folder>models</folder>
+		<folder>language</folder>
+	</files>
 	<administration>
 		<menu>Donation Gauge</menu>
 		<files folder="admin">
 			<filename>index.html</filename>
-			<filename>donation_gauge.php</filename><filename>sql/updates/mysql/0.0.1.sql</filename></files></administration></extension>
+			<filename>donation_gauge.php</filename>
+			<folder>sql</folder>
+			<folder>language</folder></files></administration></extension>

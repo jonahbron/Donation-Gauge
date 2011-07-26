@@ -35,9 +35,12 @@
 		<menu>Donation Gauge</menu>
 		<files folder="admin">
 			<filename>index.html</filename>
-			<filename>donation_gauge.php</filename>
+			<filename>donation_gauge.php</filename><filename>controller.php</filename>
 			<folder>sql</folder>
 			<folder>language</folder>
+			<folder>views</folder>
+			<folder>models</folder>
+			
 		</files>
 	</administration>
 </extension>

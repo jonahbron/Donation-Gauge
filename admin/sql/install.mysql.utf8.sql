@@ -9,3 +9,7 @@ CREATE TABLE `#__donation_gauges` (
 	`cost` DECIMAL(10, 2),
 	PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+INSERT INTO `#__donation_gauges`
+	(`title`, `description`, `button_id`, `progress`, `cost`)
+	VALUES ('Foo', 'bar bar bar bar', '642', '23.20', '50');

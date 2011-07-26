@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="1.6.0" method="upgrade">
 	<name>donation_gauge</name>
-	<creationDate>2011-7-19</creationDate><author>Jonah Dahlquist</author><authorEmail>jonah@nucleussystems.com</authorEmail><authorUrl>http://nucleussystems.com/</authorUrl><copyright>Copyright 2011 Jonah Dahlquist, all rights reserved</copyright><license>BSD</license>
-	
-	
-	
-	
-	
-	
-	<version>1.6.2</version>
-	<description>Provides a way to provide donations to independent items, showing the progress of each.</description><update>
+	<creationDate>2011-7-19</creationDate>
+	<author>Jonah Dahlquist</author>
+	<authorEmail>jonah@nucleussystems.com</authorEmail>
+	<authorUrl>http://nucleussystems.com/</authorUrl>
+	<copyright>Copyright 2011 Jonah Dahlquist, all rights reserved</copyright>
+	<license>BSD</license>
+	<version>1.6.1</version>
+	<description>Provides a way to provide donations to independent items, showing the progress of each.</description>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update>
 		<schemas>
-			<schemapath type="mysql">sql/updates/mysql</schemapath></schemas></update>
-	
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
 	<files folder="site">
 		<filename>donation_gauge.php</filename>
 		<filename>index.html</filename>
@@ -26,4 +37,7 @@
 			<filename>index.html</filename>
 			<filename>donation_gauge.php</filename>
 			<folder>sql</folder>
-			<folder>language</folder></files></administration></extension>
+			<folder>language</folder>
+		</files>
+	</administration>
+</extension>

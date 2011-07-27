@@ -12,5 +12,14 @@ defined('_JEXEC') or die; // no direct access allowed
 		<td>
 			<?php echo $item->title; ?>
 		</td>
+		<td class="center">
+			$<?php echo $item->progress; ?>
+		</td>
+		<td class="center">
+			$<?php echo $item->cost; ?>
+		</td>
+		<td class="center">
+			<?php echo JHtml::_('jgrid.published', $item->enabled, $i); ?>
+		</td>
 	</tr>
 <?php endforeach; ?>

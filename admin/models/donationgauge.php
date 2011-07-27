@@ -10,7 +10,7 @@ class DonationGaugeModelDonationGauge extends JModelList
 	{
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('id, title, description, button_id, progress, cost');
+		$query->select('id, title, description, button_id, progress, cost, enabled');
 		$query->from('#__donation_gauges');
 		return $query;
 	}

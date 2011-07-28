@@ -19,7 +19,17 @@ class DonationGaugeViewDonationGauge extends JView
 		$this->items = $gauges;
 		$this->pagination = $pagination;
 		
+		$this->addToolBar();
+		
 		parent::display($tmpl);
+	}
+	
+	protected function addToolBar()
+	{
+		JToolBarHelper::title(JText::_('COM_DONATIONGAUGE_MANAGER_GAUGES'));
+		JToolBarHelper::deleteList('', 'gauges.delete');
+		JToolBarHelper::editList('gauge.edit');
+		JToolBarHelper::addNew('gauge.add');
 	}
 
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="1.6.0" method="upgrade">
-	<name>donation_gauge</name>
+	<name>donationgauge</name>
 	<creationDate>2011-7-19</creationDate>
 	<author>Jonah Dahlquist</author>
 	<authorEmail>jonah@nucleussystems.com</authorEmail>
@@ -25,7 +25,7 @@
 		</schemas>
 	</update>
 	<files folder="site">
-		<filename>donation_gauge.php</filename>
+		<filename>donationgauge.php</filename>
 		<filename>index.html</filename>
 		<filename>controller.php</filename><folder>views</folder>
 		<folder>models</folder>
@@ -35,12 +35,14 @@
 		<menu>Donation Gauge</menu>
 		<files folder="admin">
 			<filename>index.html</filename>
-			<filename>donation_gauge.php</filename><filename>controller.php</filename>
+			<filename>donationgauge.php</filename><filename>controller.php</filename>
 			<folder>sql</folder>
 			<folder>language</folder>
 			<folder>views</folder>
 			<folder>models</folder>
-			
+			<folder>controllers</folder>
+			<folder>tables</folder>
+
 		</files>
 	</administration>
 </extension>

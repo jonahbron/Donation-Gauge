@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS `#__donation_gauges`;
+DROP TABLE IF EXISTS `#__donationgauges`;
 
-CREATE TABLE `#__donation_gauges` (
+CREATE TABLE `#__donationgauges` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`title` VARCHAR(255),
 	`description` VARCHAR(512),
@@ -11,6 +11,6 @@ CREATE TABLE `#__donation_gauges` (
 	PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
-INSERT INTO `#__donation_gauges`
+INSERT INTO `#__donationgauges`
 	(`title`, `description`, `button_id`, `progress`, `cost`, `enabled`)
 	VALUES ('Foo', 'bar bar bar bar', '642', '23.20', '50', '1');

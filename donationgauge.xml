@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="1.6.0" method="upgrade">
+<extension type="component" version="1.6.2" method="upgrade">
 	<name>donationgauge</name>
 	<creationDate>2011-7-19</creationDate>
 	<author>Jonah Dahlquist</author>

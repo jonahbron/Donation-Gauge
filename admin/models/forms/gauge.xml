@@ -2,4 +2,4 @@
 <form>
 	<fieldset>
 		<field name="id" type="hidden"></field>
-		<field name="greeting" type="text" label="COM_DONATIONGAUGE_GAUGE_GREETING_LABEL" description="COM_DONATIONGAUGE_GAUGE_GREETING_DESC" size="40" class="inputbox" default=""></field></fieldset></form>
+		<field name="greeting" type="text" label="COM_DONATIONGAUGE_ADMIN_GAUGE_GREETING_LABEL" description="COM_DONATIONGAUGE_ADMIN_GAUGE_GREETING_DESC" size="40" class="inputbox" default=""></field></fieldset></form>

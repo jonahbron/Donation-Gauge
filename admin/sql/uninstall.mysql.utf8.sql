@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS `#__donationgauges`;
+DROP TABLE IF EXISTS `#__donationgauge_gauges`;

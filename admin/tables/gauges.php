@@ -8,7 +8,7 @@ class DonationGaugeTableGauges extends JTable
 
 	function __construct(&$db)
 	{
-		parent::__construct('#__donationgauges', 'id', $db);
+		parent::__construct('#__donationgauge_gauges', 'id', $db);
 	}
 
 }

@@ -28,7 +28,7 @@ class DonationGaugeViewGauge extends JView
 	{
 		JRequest::setVar('hidemainmenu', true);
 		$isNew = $this->item->id == 0;
-		JToolBarHelper::title($isNew ? JText::_('COM_DONATIONGAUGE_MANAGER_GAUGE_NEW') : JText::_('COM_DONATIONGAUGE_MANAGER_GAUGE_EDIT'));
+		JToolBarHelper::title($isNew ? JText::_('COM_DONATIONGAUGE_ADMIN_GAUGE_NEW') : JText::_('COM_DONATIONGAUGE_ADMIN_GAUGE_EDIT'));
 		JToolBarHelper::save('gauge.save');
 		JToolBarHelper::cancel('gauge.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
 	}

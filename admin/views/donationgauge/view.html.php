@@ -26,7 +26,7 @@ class DonationGaugeViewDonationGauge extends JView
 	
 	protected function addToolBar()
 	{
-		JToolBarHelper::title(JText::_('COM_DONATIONGAUGE_MANAGER_GAUGES'));
+		JToolBarHelper::title(JText::_('COM_DONATIONGAUGE_ADMIN_GAUGES_TITLE'));
 		JToolBarHelper::deleteList('', 'gauges.delete');
 		JToolBarHelper::editList('gauge.edit');
 		JToolBarHelper::addNew('gauge.add');

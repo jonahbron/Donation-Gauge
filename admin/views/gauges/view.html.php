@@ -3,7 +3,7 @@ defined('_JEXEC') or die; // no direct access allowed
 
 jimport('joomla.application.component.view');
 
-class DonationGaugeViewDonationGauge extends JView
+class DonationGaugeViewGauges extends JView
 {
 
 	public function display($tmpl=null)

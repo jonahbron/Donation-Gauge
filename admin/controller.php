@@ -8,7 +8,7 @@ class DonationGaugeController extends JController
 
 	public function display($cachable=false)
 	{
-		JRequest::setVar('view', JRequest::getCmd('view', 'DonationGauge'));
+		JRequest::setVar('view', JRequest::getCmd('view', 'gauges'));
 		parent::display($cachable);
 	}
 

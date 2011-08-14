@@ -3,7 +3,7 @@ defined('_JEXEC') or die; // no direct access allowed
 
 jimport('joomla.application.component.modellist');
 
-class DonationGaugeModelDonationGauge extends JModelList
+class DonationGaugeModelGauges extends JModelList
 {
 
 	public function getListQuery()

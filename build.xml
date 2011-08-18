@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project default="build">
-	<property name="component"	value="com_donationgauge"/>
+	<property name="component.name"	value="donationgauge"/>
+	<property name="component.dir"	value="com_${component.name}"/>
 	<property name="build.dir"	value="build" />
 	<property name="dist.dir"	value="release" />
 	
@@ -8,31 +9,31 @@
 		<property file="build_config.properties" override="true" />
 	</target>
 	
-	<target name="build" depends="init">
+	<target name="build" depends="_init">
 		<mkdir dir="${build.dir}" />
-		<delete dir="${build.dir}/${component}" />
+		<delete dir="${build.dir}/${component.dir}" />
 		
 		<phingcall target="_media" />
 		
-		<copy todir="${build.dir}/${component}/site" haltonerror="false">
-			<fileset dir="${source.dir}/components/${project.dir}">
+		<copy todir="${build.dir}/${component.dir}/site" haltonerror="false">
+			<fileset dir="${source.dir}/components/${component.dir}">
 				<include name="**/*" />
 			</fileset>
 		</copy>
 		
-		<copy todir="${build.dir}/${component}/admin" haltonerror="false">
-			<fileset dir="${source.dir}/administrator/components/${project.dir}">
+		<copy todir="${build.dir}/${component.dir}/admin" haltonerror="false">
+			<fileset dir="${source.dir}/administrator/components/${component.dir}">
 				<include name="**/*" />
 			</fileset>
 		</copy>
 		
-		<move file="${build.dir}/${component}/admin/${component}.xml" todir="${build.dir}/${component}" />
+		<move file="${build.dir}/${component.dir}/admin/${component.name}.xml" todir="${build.dir}/${component.dir}" />
 		
 		<phingcall target="_updateTree" />
 	</target>
 	
 	<target name="_media">
-		<available file="${source.dir}/media/${component}" type="dir" property="source.media.available" value="true" />
+		<available file="${source.dir}/media/${component.dir}" type="dir" property="source.media.available" value="true" />
 		<if>
 			<equals arg1="${source.media.available}" arg2="1" />
 			<then>
@@ -46,8 +47,8 @@
 	</target>
 	
 	<target name="_updateTree" depends="_cleanTree">
-		<copy todir="${component}">
-			<fileset dir="${build.dir}/${component}">
+		<copy todir="${component.dir}">
+			<fileset dir="${build.dir}/${component.dir}">
 				<include name="**/*" />
 			</fileset>
 		</copy>
@@ -55,7 +56,7 @@
 	
 	<target name="_cleanTree">
 		<delete includeemptydirs="true">
-			<fileset dir="${component}">
+			<fileset dir="${component.dir}">
 				<include name="*" />
 				<include name="*/**" />
 			</fileset>

@@ -1,1 +1,11 @@
 Donation Gauge is a donation gateway (currently Paypal only) component for Joomla. It lets you manage separate things that need to be donated towards, and presents them to the person viewing the site. Progress is shown on each as donations are added.
+
+DEVELOPMENT
+
+To develop with com_donationgauge, you will need PHing installed.  Clone/fork the main repository.  Copy build_config.properties.dist to build_config.properties, and give source.dir the path to a working Joomla instance.  Install com_donationgauge to your Joomla instance by directory (/com_donationgauge).  Make changes in in the working Joomla instance.  When you are ready to commit, run:
+
+$ phing build
+
+To package the component into a ZIP file, run:
+
+$ phing package

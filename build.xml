@@ -3,7 +3,7 @@
 	<property name="component.name"	value="donationgauge"/>
 	<property name="component.dir"	value="com_${component.name}"/>
 	<property name="build.dir"	value="build" />
-	<property name="dist.dir"	value="release" />
+	<property name="package.dir"	value="package" />
 	
 	<target name="_init">
 		<property file="build_config.properties" override="true" />
@@ -30,6 +30,17 @@
 		<move file="${build.dir}/${component.dir}/admin/${component.name}.xml" todir="${build.dir}/${component.dir}" />
 		
 		<phingcall target="_updateTree" />
+		
+		<delete dir="${build.dir}" includeemptydirs="true" failonerror="false" />
+	</target>
+	
+	<target name="package">
+		<mkdir dir="${package.dir}" />
+		<zip destfile="${package.dir}/${component.dir}_${version}.zip">
+			<fileset dir="${component.dir}">
+				<include name="**/*" />
+			</fileset>
+		</zip>
 	</target>
 	
 	<target name="_media">

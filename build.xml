@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project default="build">
+	<property name="component"	value="com_donationgauge"/>
+	<property name="build.dir"	value="build" />
+	<property name="dist.dir"	value="release" />
+	
+	<target name="_init">
+		<property file="build_config.properties" override="true" />
+	</target>
+	
+	<target name="build" depends="init">
+		<mkdir dir="${build.dir}" />
+		<delete dir="${build.dir}/${component}" />
+		
+		<phingcall target="_media" />
+		
+		<copy todir="${build.dir}/${component}/site" haltonerror="false">
+			<fileset dir="${source.dir}/components/${project.dir}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${build.dir}/${component}/admin" haltonerror="false">
+			<fileset dir="${source.dir}/administrator/components/${project.dir}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		
+		<move file="${build.dir}/${component}/admin/${component}.xml" todir="${build.dir}/${component}" />
+		
+		<phingcall target="_updateTree" />
+	</target>
+	
+	<target name="_media">
+		<available file="${source.dir}/media/${component}" type="dir" property="source.media.available" value="true" />
+		<if>
+			<equals arg1="${source.media.available}" arg2="1" />
+			<then>
+				<copy todir="${build.dir}/${name}/media" haltonerror="false">
+					<fileset dir="${source.dir}/media/${project.dir}">
+						<include name="**/*" />
+					</fileset>
+				</copy>
+			</then>
+		</if>
+	</target>
+	
+	<target name="_updateTree" depends="_cleanTree">
+		<copy todir="${component}">
+			<fileset dir="${build.dir}/${component}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="_cleanTree">
+		<delete includeemptydirs="true">
+			<fileset dir="${component}">
+				<include name="*" />
+				<include name="*/**" />
+			</fileset>
+		</delete>
+	</target>
+	
+</project>

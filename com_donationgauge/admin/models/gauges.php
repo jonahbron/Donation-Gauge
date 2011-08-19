@@ -14,4 +14,18 @@ class DonationGaugeModelGauges extends JModelList
 		$query->from('#__donationgauge_gauges');
 		return $query;
 	}
+	
+	public function populateState($ordering=null, $direction=null)
+	{
+		$app = JFactory::getApplication();
+		$context = $this->context;
+		
+		$search = $this->getUserStateFromRequest($context.'.search', 'filter_search');
+		$this->setState('filter.search', $search);
+		
+		$published = $this->getUserStateFromRequest($context . '.filter.published', 'filter_published', '');
+		$this->setState('filter.published', $published);
+		
+		parent::populateState($ordering, $direction);
+	}
 }

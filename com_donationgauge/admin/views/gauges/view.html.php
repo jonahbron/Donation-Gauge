@@ -10,6 +10,7 @@ class DonationGaugeViewGauges extends JView
 	{
 		$gauges = $this->get('Items');
 		$pagination = $this->get('Pagination');
+		$this->state = $this->get('State');
 		
 		if (count($errors = $this->get('Errors'))) {
 			JError::raiseError(500, implode('<br />', $errors));
@@ -27,9 +28,28 @@ class DonationGaugeViewGauges extends JView
 	protected function addToolBar()
 	{
 		JToolBarHelper::title(JText::_('COM_DONATIONGAUGE_ADMIN_GAUGES_TITLE'));
-		JToolBarHelper::deleteList('', 'gauges.delete');
-		JToolBarHelper::editList('gauge.edit');
-		JToolBarHelper::addNew('gauge.add');
+		
+		require_once JPATH_COMPONENT . '/helpers/gauges.php';
+		$permissions = GaugesHelper::getPermissions();
+		
+		if ($permissions->get('core.create')) {
+			JToolBarHelper::addNew('gauge.add');
+		}
+		
+		if ($permissions->get('core.edit')) {
+			JToolBarHelper::editList('gauge.edit');
+			JToolBarHelper::divider();
+		}
+		
+		if ($permissions->get('core.edit.state')) {
+			JToolBarHelper::publish('gauges.publish', 'JTOOLBAR_PUBLISH', true);
+			JToolBarHelper::unpublish('gauges.publish', 'JTOOLBAR_UNPUBLISH', true);
+			JToolBarHelper::divider();
+		}
+		
+		if ($permissions->get('core.delete')) {
+			JToolBarHelper::deleteList('', 'gauges.delete');
+		}
 	}
 
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project default="build">
-	<property name="component.name"	value="donationgauge"/>
-	<property name="component.dir"	value="com_${component.name}"/>
-	<property name="build.dir"	value="build" />
-	<property name="package.dir"	value="package" />
+	<property name="component.name" value="donationgauge"/>
+	<property name="component.dir" value="com_${component.name}"/>
+	<property name="build.dir" value="build" />
+	<property name="package.dir" value="package" />
 	
 	<target name="_init">
 		<property file="build_config.properties" override="true" />

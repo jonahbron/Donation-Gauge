@@ -24,7 +24,7 @@ class DonationGaugeModelGauges extends JModelList
 	
 	public function getListQuery()
 	{
-		$db = JFactory::getDBO();
+		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
 		$query->select('a.id, a.title, a.description, a.button_id, a.progress, a.cost, a.published');
 		$query->from('#__donationgauge_gauges AS a');
@@ -50,6 +50,8 @@ class DonationGaugeModelGauges extends JModelList
 		
 		// order correctly
 		$query->order($db->getEscaped($this->getState('list.ordering', 'a.title')) . ' ' . $db->getEscaped($this->getState('list.direction', 'ASC')));
+		
+		echo nl2br(str_replace('#__', 'jmla_', $query));
 		return $query;
 	}
 	

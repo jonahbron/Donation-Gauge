@@ -40,11 +40,12 @@ class DonationGaugeModelGauges extends JModelList
 		// filter by search in title
 		$search = $this->getState('filter.search');
 		if (!empty($search)) {
+			echo 'blahb lha';
 			if (stripos($search, 'id:') === 0) {
 				$query->where('a.id = ' . (int) ltrim(substr($search, 3)));
-			} elseif (stripos($search, 'author:') === 0) {
+			} else {
 				$search = $db->Quote('%' . $db->getEscaped($search, true) . '%');
-				$query->where('(a.title LIKE ' . $search . ' OR a.alias LIKE ' . $search . ' OR a.description LIKE ' . $search . ')');
+				$query->where('(a.title LIKE ' . $search . ' OR a.description LIKE ' . $search . ')');
 			}
 		}
 		
@@ -60,10 +61,10 @@ class DonationGaugeModelGauges extends JModelList
 		$app = JFactory::getApplication();
 		$context = $this->context;
 		
-		$search = $this->getUserStateFromRequest($context.'.search', 'filter_search');
+		$search = JRequest::getCmd('filter_search');//$this->getUserStateFromRequest($context.'.search', 'filter_search');
 		$this->setState('filter.search', $search);
 		
-		$published = $this->getUserStateFromRequest($context . '.filter.published', 'filter_published', '');
+		$published = JRequest::getCmd('filter_published');//$this->getUserStateFromRequest($context . '.filter.published', 'filter_published', '');
 		$this->setState('filter.published', $published);
 		
 		$listOrder = JRequest::getCmd('filter_order', 'a.id');

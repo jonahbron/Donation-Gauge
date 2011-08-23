@@ -7,11 +7,11 @@ CREATE TABLE `#__donationgauges` (
 	`button_id` VARCHAR(128),
 	`progress` DECIMAL(10, 2),
 	`cost` DECIMAL(10, 2),
-	`enabled` TINYINT(1),
+	`published` TINYINT(1),
 	PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 
 INSERT INTO `#__donationgauges`
-	(`title`, `description`, `button_id`, `progress`, `cost`, `enabled`)
+	(`title`, `description`, `button_id`, `progress`, `cost`, `published`)
 	VALUES ('Foo', 'bar bar bar bar', '642', '23.20', '50', '1'),
 	('Bar', 'fofofofofofofofo', '098', '.01', '1000000', '1');

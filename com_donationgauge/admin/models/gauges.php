@@ -6,12 +6,50 @@ jimport('joomla.application.component.modellist');
 class DonationGaugeModelGauges extends JModelList
 {
 
+	public function __construct($config=array())
+	{
+		if (empty($config['filter_fields'])) {
+			$config['filter_fields'] = array(
+				'id', 'a.id',
+				'title', 'a.title',
+				'description', 'a.description',
+				'button_id', 'a.button_id',
+				'progress', 'a.progress',
+				'cost', 'a.cost',
+				'published', 'a.published'
+			);
+		}
+		parent::__construct($config);
+	}
+	
 	public function getListQuery()
 	{
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('id, title, description, button_id, progress, cost, enabled');
-		$query->from('#__donationgauge_gauges');
+		$query->select('a.id, a.title, a.description, a.button_id, a.progress, a.cost, a.published');
+		$query->from('#__donationgauge_gauges AS a');
+		
+		// filter by published state
+		$published = $this->getState('filter.published');
+		if (is_numeric($published)) {
+			$query->where('a.published = ' . (int) $published);
+		} elseif ($published === '') {
+			$query->where('(a.published IN (0, 1))');
+		}
+		
+		// filter by search in title
+		$search = $this->getState('filter.search');
+		if (!empty($search)) {
+			if (stripos($search, 'id:') === 0) {
+				$query->where('a.id = ' . (int) ltrim(substr($search, 3)));
+			} elseif (stripos($search, 'author:') === 0) {
+				$search = $db->Quote('%' . $db->getEscaped($search, true) . '%');
+				$query->where('(a.title LIKE ' . $search . ' OR a.alias LIKE ' . $search . ' OR a.description LIKE ' . $search . ')');
+			}
+		}
+		
+		// order correctly
+		$query->order($db->getEscaped($this->getState('list.ordering', 'a.title')) . ' ' . $db->getEscaped($this->getState('list.direction', 'ASC')));
 		return $query;
 	}
 	
@@ -27,5 +65,13 @@ class DonationGaugeModelGauges extends JModelList
 		$this->setState('filter.published', $published);
 		
 		parent::populateState($ordering, $direction);
+	}
+	
+	public function getStoreId($id='')
+	{
+		$id .= ':' . $this->getState('filter.search');
+		$id .= ':' . $this->getState('filter.published');
+		
+		return parent::getStoreId($id);
 	}
 }

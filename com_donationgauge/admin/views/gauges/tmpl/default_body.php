@@ -18,7 +18,7 @@ defined('_JEXEC') or die; // no direct access allowed
 			$<?php echo $this->escape($item->cost); ?>
 		</td>
 		<td class="center">
-			<?php echo JHtml::_('jgrid.published', $item->enabled, $i, 'gauges.', true); ?>
+			<?php echo JHtml::_('jgrid.published', $item->published, $i, 'gauges.', true); ?>
 		</td>
 		<td>
 			<?php echo (int) $item->id; ?>

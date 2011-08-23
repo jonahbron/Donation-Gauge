@@ -7,19 +7,21 @@ defined('_JEXEC') or die; // no direct access allowed
 			<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 		</td>
 		<td>
-			<?php echo $item->title; ?>
+			<a href="<?php echo JRoute::_('index.php?option=com_donationgauge&task=gauge.edit&id=' . $item->id);?>">
+				<?php echo $this->escape($item->title); ?>
+			</a>
 		</td>
 		<td class="center">
-			$<?php echo $item->progress; ?>
+			$<?php echo $this->escape($item->progress); ?>
 		</td>
 		<td class="center">
-			$<?php echo $item->cost; ?>
+			$<?php echo $this->escape($item->cost); ?>
 		</td>
 		<td class="center">
-			<?php echo JHtml::_('jgrid.published', $item->enabled, $i); ?>
+			<?php echo JHtml::_('jgrid.published', $item->enabled, $i, 'gauges.', true); ?>
 		</td>
 		<td>
-			<?php echo $item->id; ?>
+			<?php echo (int) $item->id; ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

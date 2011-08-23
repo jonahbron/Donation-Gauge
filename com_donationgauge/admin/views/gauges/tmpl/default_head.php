@@ -1,13 +1,7 @@
 <?php
 defined('_JEXEC') or die; // no direct access allowed
-
-$listOrder = $this->escape($this->state->get('list.ordering'));
-$listDirection = $this->escape($this->state->get('list.direction'));
 ?>
 <tr>
-	<th width="5">
-		<?php echo JHtml::_('grid.sort', 'COM_DONATIONGAUGE_ADMIN_GAUGES_HEADING_ID', 'a.id', $listDirection, $listOrder); ?>
-	</th>
 	<th width="20">
 		<input type="checkbox" name="toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this);" />
 	</th>
@@ -22,6 +16,9 @@ $listDirection = $this->escape($this->state->get('list.direction'));
 	</th>
 	<th width="80">
 		<?php echo JHtml::_('grid.sort', 'JSTATUS', 'a.status', $listDirection, $listOrder); ?>
+	</th>
+	<th width="5">
+		<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ID', 'a.id', $listDirection, $listOrder); ?>
 	</th>
 	
 </tr>

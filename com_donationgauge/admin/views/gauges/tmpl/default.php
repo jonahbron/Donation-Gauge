@@ -2,6 +2,10 @@
 defined('_JEXEC') or die; // no direct access allowed
 
 JHtml::_('behavior.tooltip');
+JHtml::_('behavior.multiselect');
+
+$listOrder = $this->escape($this->state->get('list.ordering'));
+$listDirection = $this->escape($this->state->get('list.direction'));
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_donationgauge'); ?>" method="post" name="adminForm">
 	<fieldset id="filter-bar">

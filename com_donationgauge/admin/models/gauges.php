@@ -48,10 +48,10 @@ class DonationGaugeModelGauges extends JModelList
 			}
 		}
 		
-		// order correctly
+		// sort list
 		$query->order($db->getEscaped($this->getState('list.ordering', 'a.title')) . ' ' . $db->getEscaped($this->getState('list.direction', 'ASC')));
 		
-		echo nl2br(str_replace('#__', 'jmla_', $query));
+		# echo nl2br(str_replace('#__', 'jmla_', $query));
 		return $query;
 	}
 	
@@ -65,6 +65,12 @@ class DonationGaugeModelGauges extends JModelList
 		
 		$published = $this->getUserStateFromRequest($context . '.filter.published', 'filter_published', '');
 		$this->setState('filter.published', $published);
+		
+		$listOrder = JRequest::getCmd('filter_order', 'a.id');
+		$this->setState('list.ordering', $listOrder);
+		
+		$listDirection = JRequest::getCmd('filter_order_Dir', 'ASC');
+		$this->setState('list.direction', $listDirection);
 		
 		parent::populateState($ordering, $direction);
 	}

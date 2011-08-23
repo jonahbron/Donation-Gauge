@@ -4,10 +4,8 @@ defined('_JEXEC') or die; // no direct access allowed
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.multiselect');
 
-$listOrder = $this->escape($this->state->get('list.ordering'));
-$listDirection = $this->escape($this->state->get('list.direction'));
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_donationgauge'); ?>" method="post" name="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_donationgauge'); ?>" method="post" name="adminForm" id="adminForm">
 	<fieldset id="filter-bar">
 		<div class="filter-search fltlft">
 			<label class="filter-search-lbl" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>

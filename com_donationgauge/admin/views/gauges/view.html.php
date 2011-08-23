@@ -19,6 +19,8 @@ class DonationGaugeViewGauges extends JView
 		
 		$this->items = $gauges;
 		$this->pagination = $pagination;
+		$this->sortColumn = $this->escape($this->state->get('list.ordering'));
+		$this->sortDirection = $this->escape($this->state->get('list.direction'));
 		
 		$this->addToolBar();
 		

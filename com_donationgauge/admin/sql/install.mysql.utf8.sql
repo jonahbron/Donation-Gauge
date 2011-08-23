@@ -13,4 +13,5 @@ CREATE TABLE `#__donationgauge_gauges` (
 
 INSERT INTO `#__donationgauge_gauges`
 	(`title`, `description`, `button_id`, `progress`, `cost`, `enabled`)
-	VALUES ('Foo', 'bar bar bar bar', '642', '23.20', '50', '1');
+	VALUES ('Foo', 'bar bar bar bar', '642', '23.20', '50', '1'),
+	('Bar', 'fofofofofofofofo', '098', '.01', '1000000', '1');

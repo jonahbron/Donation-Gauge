@@ -1,3 +1,4 @@
 build_config.properties
 build
 package
+Tests/bootstrap.php

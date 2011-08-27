@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
 	<fieldset>
-		<field name="id" type="hidden"></field>
-		<field name="greeting" type="text" label="COM_DONATIONGAUGE_ADMIN_GAUGE_GREETING_LABEL" description="COM_DONATIONGAUGE_ADMIN_GAUGE_GREETING_DESC" size="40" class="inputbox" default=""></field></fieldset></form>
+		<field name="id" type="text" default="0" label="JGLOBAL_FIELD_ID_LABEL" readonly="true" class="readonly" description="JGLOBAL_FIELD_ID_DESC" />
+		<field name="title" type="text" label="JGLOBAL_TITLE" description="COM_DONATIONGAUGE_ADMIN_GAUGE_TITLE_DESC" size="40" class="inputbox" default="" />
+		<field name="description" type="editor" buttons="true" hide="pagebreak,readmore" class="inputbox" filter="safehtml" label="JGLOBAL_DESCRIPTION" description="COM_DONATIONGAUGE_ADMIN_GAUGE_DESC_DESC" />
+	</fieldset>
+</form>
